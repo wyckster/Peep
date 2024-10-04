@@ -75,6 +75,7 @@ namespace Peep
 
         FileSystemWatcher watcher;
         private Rectangle savedBounds;
+        private FormBorderStyle savedBorderStyle;
 
         private void WatchBitmap()
         {
@@ -120,6 +121,9 @@ namespace Peep
             } else if (keyData == Keys.F10) {
                 this.pictureView1.IsFilteringEnabled = !this.pictureView1.IsFilteringEnabled;
                 return true;
+            } else if (keyData == Keys.F9) {
+                this.pictureView1.IsOffsetEnabled = !this.pictureView1.IsOffsetEnabled;
+                return true;
             } else if (keyData == Keys.F11) {
                 ToggleFullScreen();
             }
@@ -130,12 +134,13 @@ namespace Peep
         {
             if (IsFullScreen()) {
                 // Go back to normal
-                this.FormBorderStyle = FormBorderStyle.FixedSingle;
+                this.FormBorderStyle = savedBorderStyle;
                 this.Bounds = savedBounds;
             } else {
                 // Go Fullscreen!
                 // save the current bounds
                 savedBounds = this.Bounds;
+                savedBorderStyle = this.FormBorderStyle;
                 this.FormBorderStyle = FormBorderStyle.None;
                 // Figure out which screen we're on
                 int maxArea = 0;
