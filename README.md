@@ -11,6 +11,7 @@ My favourite features:
 # Controls
 ## Keyboard Controls
 
+- <kbd>F9</kbd> Toggles high quality pixel offset mode (on by default).
 - <kbd>F10</kbd> Toggles filtering between Nearest Neighbour and Bilinear
 - <kbd>F11</kbd> Toggles Full screen.
 - <kbd>0</kbd> _(the digit zero)_ Resets the view so that the image fits the window frame.
@@ -19,5 +20,5 @@ My favourite features:
 ## Mouse Controls
 
 - <kbd>Ctrl</kbd> + <kbd>Mouse Wheel</kbd> Zooms in/out.
-- <kbd>Left Mouse Button</kbd> + <kbd>drag mouse</kbd> Moves the image around.
+- <kbd>Left Mouse Button</kbd> + <kbd>Drag mouse</kbd> Moves the image around.
 
