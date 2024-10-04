@@ -41,12 +41,24 @@ namespace Peep
         private bool isDragging = false;
         private Point lastLocation;
         private bool isFilteringEnabled = true;
+        private bool isOffsetEnabled = true;
+
         public bool IsFilteringEnabled {
             get {
                 return isFilteringEnabled;
             }
             set {
                 isFilteringEnabled = value;
+                Invalidate();
+            }
+        }
+
+        public bool IsOffsetEnabled {
+            get {
+                return isOffsetEnabled;
+            }
+            set {
+                isOffsetEnabled = value;
                 Invalidate();
             }
         }
@@ -59,6 +71,7 @@ namespace Peep
             e.Graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
             e.Graphics.ResetTransform();
             e.Graphics.InterpolationMode = isFilteringEnabled ? InterpolationMode.HighQualityBilinear : InterpolationMode.NearestNeighbor;
+            e.Graphics.PixelOffsetMode = isOffsetEnabled ? System.Drawing.Drawing2D.PixelOffsetMode.HighQuality : System.Drawing.Drawing2D.PixelOffsetMode.None;
             e.Graphics.Transform = m;
             RectangleF srcRect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
             RectangleF dstRect = new Rectangle(0, 0, bitmap.Width, bitmap.Height);
